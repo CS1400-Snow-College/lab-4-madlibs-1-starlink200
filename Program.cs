@@ -14,37 +14,35 @@ string originalStory = "A vacation is when you take a trip to some (adjective) p
 + " (place) and I will practice (verb ending in “ing”) Parents need vacations more than kids because"
 + " parents are always very (adjective) and because they have to work (number) hours every day all "
 + "year making enough (plural noun) to pay for the vacation.";
-Console.Write(originalStory);
+//Console.Write(originalStory);
 Console.WriteLine("");
 //create an array that will hold each word as seperate items in an array
-string[] newStory = originalStory.Split(" ");
+string[] newStory = originalStory.Split();
 for(int i = 0; i < newStory.Length - 1; i++)
 {
     //initializing a string variable that will have the value of a specific item in the array
     //to be tested against
-    string newStoryWord = newStory[i];
-    string lastStoryWord = newStory[0];
-    if(i >= 1)
+    string storyWord = newStory[i];
+    if(storyWord[0].Equals('('))
     {
-        lastStoryWord = newStory[i-1];
-    }
-    if(newStoryWord[0].Equals('(') && (newStoryWord[newStoryWord.Length - 1].Equals(')') || newStoryWord[newStoryWord.Length - 1].Equals('.')))
-    {
-        Console.WriteLine($"Please provide a {newStoryWord}");
-        string newWord = Console.ReadLine();
-        newStory[i] = newWord;
-        Console.Clear();
-    }
-    else if(((newStoryWord[newStoryWord.Length - 1].Equals(')') || newStoryWord[newStoryWord.Length - 1].Equals('.')) && !newStoryWord[0].Equals('(') && lastStoryWord[0].Equals('(')))
-    {
-        Console.Clear();
-        Console.WriteLine($"Please provide a {lastStoryWord} {newStoryWord}");
-        string newWord = Console.ReadLine();
-        newStory[i] = newWord;
-        newStory[i-1] = "";
+        for(int j = i+1; j < newStory.Length - 2; j++)
+        {
+            string endOfStoryWrd = newStory[j];
+            int endWrdLength = endOfStoryWrd.Length;
+            if(!endOfStoryWrd[endWrdLength - 1].Equals(')') && storyWord[0].Equals('('))
+            {
+                storyWord += endOfStoryWrd;
+                Console.Clear();
+                Console.WriteLine(storyWord);
+            }
+            else if(newStory[j][0].Equals(')'))
+            {
+
+            }
+        }
     }
 }
-foreach(string word in newStory)
+/*foreach(string word in newStory)
 {
     Console.Write($" {word}");
-}
+}*/
