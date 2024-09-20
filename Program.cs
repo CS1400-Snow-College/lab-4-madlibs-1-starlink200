@@ -46,11 +46,12 @@ for(int i = 0; i < newStory.Length - 1; i++)
             j++;
         }
         Console.WriteLine($"Please give a{inBetweenParanthesis}");
+        string[] newParanthesis = inBetweenParanthesis.Split();
         string userAnswer = Console.ReadLine();
-        
+        newStory[Array.IndexOf(newStory, inBetweenParanthesis)] = userAnswer;
     }
 }
-/*foreach(string word in newStory)
+foreach(string word in newStory)
 {
     Console.Write($" {word}");
-}*/
+}
