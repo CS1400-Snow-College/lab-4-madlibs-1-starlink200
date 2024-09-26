@@ -1,4 +1,6 @@
 ﻿
+using System.Security.Principal;
+
 Console.Clear();
 //Describe game to user
 Console.WriteLine("Hello! This is a game called madlibs which will ask you for some words like" +
@@ -25,10 +27,10 @@ for(int i = 0; i < newStory.Length - 1; i++)
     string storyWord = newStory[i];
     bool keepChecking = false;
     int j = i;
+    string inBetweenParanthesis = "";
     if(storyWord[0].Equals('('))
     {
         keepChecking = true;
-        string inBetweenParanthesis = "";
         while(keepChecking){
             //Console.WriteLine("while loop entered");
             string endStoryWrd = newStory[j];
@@ -48,7 +50,11 @@ for(int i = 0; i < newStory.Length - 1; i++)
         Console.WriteLine($"Please give a{inBetweenParanthesis}");
         string[] newParanthesis = inBetweenParanthesis.Split();
         string userAnswer = Console.ReadLine();
-        newStory[Array.IndexOf(newStory, inBetweenParanthesis)] = userAnswer;
+        newStory[i] = userAnswer;
+    }
+    for(int k = i+1; k < inBetweenParanthesis.Length-1; k++)
+    {
+        newStory[k] = "";
     }
 }
 foreach(string word in newStory)

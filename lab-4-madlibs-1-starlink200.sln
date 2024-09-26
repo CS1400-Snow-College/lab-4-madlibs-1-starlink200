@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab-4-madlibs-1-starlink200", "lab-4-madlibs-1-starlink200.csproj", "{300D8AC7-C0EC-4691-BAF0-50052C1D43CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trial and Error", "..\..\CodingForFun\Trial and Error\Trial and Error.csproj", "{FBA68976-E64F-4689-AAA8-D41CF1C8C41F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{300D8AC7-C0EC-4691-BAF0-50052C1D43CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{300D8AC7-C0EC-4691-BAF0-50052C1D43CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{300D8AC7-C0EC-4691-BAF0-50052C1D43CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA68976-E64F-4689-AAA8-D41CF1C8C41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA68976-E64F-4689-AAA8-D41CF1C8C41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA68976-E64F-4689-AAA8-D41CF1C8C41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA68976-E64F-4689-AAA8-D41CF1C8C41F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
