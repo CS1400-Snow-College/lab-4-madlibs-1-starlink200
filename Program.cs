@@ -35,24 +35,21 @@ for(int i = 0; i < newStory.Length - 1; i++)
         keepChecking = true;
         while(keepChecking)
         {
-            //Console.WriteLine("while loop entered");
-            string endStoryWrd = newStory[j];
             //short hand variable for less reading
-            int WrdLength = endStoryWrd.Length;
-            if(!endStoryWrd[WrdLength-1].Equals(')') && !endStoryWrd.Substring(WrdLength-2,2).Equals(")."))
+            int WrdLength = newStory[j].Length;
+            if(!newStory[j][WrdLength-1].Equals(')') && !newStory[j].Substring(WrdLength-2,2).Equals(")."))
             {
-                inBetweenParanthesis += " " + endStoryWrd;
-                //Console.Write(endStoryWrd + " ");
+                inBetweenParanthesis += " " + newStory[j];
             }
-            else if(endStoryWrd[WrdLength-1].Equals(')') || endStoryWrd.Substring(WrdLength-2,2).Equals(")."))
+            else if(newStory[j][WrdLength-1].Equals(')') || newStory[j].Substring(WrdLength-2,2).Equals(")."))
             {
-                if(endStoryWrd[WrdLength-1].Equals(')'))
+                if(newStory[j][WrdLength-1].Equals(')'))
                 {
-                    inBetweenParanthesis += " " + endStoryWrd;
+                    inBetweenParanthesis += " " + newStory[j];
                 }
                 else
                 {
-                    inBetweenParanthesis += " " + endStoryWrd.Substring(0, WrdLength - 1);
+                    inBetweenParanthesis += " " + newStory[j].Substring(0, WrdLength - 1);
                 }
                 keepChecking = false;
             }
@@ -61,7 +58,9 @@ for(int i = 0; i < newStory.Length - 1; i++)
         Console.WriteLine($"Please give a {inBetweenParanthesis.Substring(2, inBetweenParanthesis.Length-3)}");
         string userAnswer = Console.ReadLine();
         userAnswer = " " + userAnswer;
+        //finds first instance of the word in paranthesis
         int indexOfWord = originalStory.IndexOf(inBetweenParanthesis);
+
         //substrings of the original story creating the 3 sections of the new story, what comes before the paraenthesis, the users input, and what comes after the paranthesis
         string storyBeginning = originalStory.Substring(0, indexOfWord);
         string storyMiddle = userAnswer;
