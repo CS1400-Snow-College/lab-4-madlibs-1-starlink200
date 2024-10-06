@@ -3,7 +3,7 @@ using System.Security.Principal;
 
 Console.Clear();
 //Describe game to user
-Console.WriteLine("Hello! This is a game called madlibs which will ask you for some words like" +
+Console.WriteLine("Hello! This is a game called madlibs which will ask you for some words like " +
 "nouns, adjectives, plurals nouns etc. To make a fun story for you to read. Press any button to continue");
 //create a string variable with the story that will be manipulated by user
 string originalStory = "A vacation is when you take a trip to some (adjective) place with your"
@@ -17,13 +17,13 @@ string originalStory = "A vacation is when you take a trip to some (adjective) p
 + " parents are always very (adjective) and because they have to work (number) hours every day all "
 + "year making enough (plural noun) to pay for the vacation.";
 Console.ReadKey();
+Console.Clear();
+Console.WriteLine(originalStory);
+Console.WriteLine("");
 //create an array that will hold each word as seperate items in an array
 string[] newStory = originalStory.Split();
 for(int i = 0; i < newStory.Length - 1; i++)
 {
-    Console.Clear();
-    Console.WriteLine(originalStory);
-    Console.WriteLine("");
     //initializing a string variable that will have the value of a specific item in the array
     //to be tested against
     string storyWord = newStory[i];
@@ -67,7 +67,8 @@ for(int i = 0; i < newStory.Length - 1; i++)
         //variable which is the number of characters remaining from after the paranthesis to the end of the string
         int lengthRemaining = originalStory.Length - inBetweenParanthesis.Length - indexOfWord;
         string storyEnd = originalStory.Substring(indexOfWord + inBetweenParanthesis.Length, lengthRemaining);
-        originalStory =storyBeginning + storyMiddle + storyEnd;
+        originalStory = storyBeginning + storyMiddle + storyEnd;
+        Console.Clear();
     }
 }
 Console.WriteLine(originalStory);

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-4-madlibs-1-starlink200")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df620363c9c0e31d3064031406f3ef8ae6ae9023")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3977abf88e5e378f59f5dd0c405c2d604cd3f13")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-4-madlibs-1-starlink200")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-4-madlibs-1-starlink200")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
