@@ -20,20 +20,27 @@ string originalStory = "A vacation is when you take a trip to some (adjective) p
 Console.WriteLine("");
 //create an array that will hold each word as seperate items in an array
 string[] newStory = originalStory.Split();
+string userAnswer = "your mom";
 for(int i = 0; i < newStory.Length - 1; i++)
 {
+    Console.Clear();
+    Console.WriteLine(originalStory);
     //initializing a string variable that will have the value of a specific item in the array
     //to be tested against
     string storyWord = newStory[i];
     bool keepChecking = false;
+    bool changeStory = false;
     int j = i;
     string inBetweenParanthesis = "";
     if(storyWord[0].Equals('('))
     {
         keepChecking = true;
-        while(keepChecking){
+        changeStory = true;
+        while(keepChecking)
+        {
             //Console.WriteLine("while loop entered");
             string endStoryWrd = newStory[j];
+            //short hand variable for less reading
             int WrdLength = endStoryWrd.Length;
             if(!endStoryWrd[WrdLength-1].Equals(')') && !endStoryWrd.Substring(WrdLength-2,2).Equals(")."))
             {
@@ -48,16 +55,16 @@ for(int i = 0; i < newStory.Length - 1; i++)
             j++;
         }
         Console.WriteLine($"Please give a{inBetweenParanthesis}");
-        string[] newParanthesis = inBetweenParanthesis.Split();
-        string userAnswer = Console.ReadLine();
-        newStory[i] = userAnswer;
-    }
-    for(int k = i+1; k < inBetweenParanthesis.Length-1; k++)
-    {
-        newStory[k] = "";
+        userAnswer = Console.ReadLine();
+        userAnswer = " " + userAnswer + " ";
+        int indexOfWord = originalStory.IndexOf(inBetweenParanthesis);
+        //substrings of the original story creating the 3 sections of the new story, what comes before the paraenthesis, the users input, and what comes after the paranthesis
+        string storyBeginning = originalStory.Substring(0, indexOfWord);
+        string storyMiddle = userAnswer;
+        //variable which is the number of characters remaining from after the paranthesis to the end of the string
+        int lengthRemaining = originalStory.Length - inBetweenParanthesis.Length - indexOfWord;
+        string storyEnd = originalStory.Substring(indexOfWord + inBetweenParanthesis.Length, lengthRemaining);
+        originalStory =storyBeginning + storyMiddle + storyEnd;
     }
 }
-foreach(string word in newStory)
-{
-    Console.Write($" {word}");
-}
+Console.WriteLine(originalStory);
