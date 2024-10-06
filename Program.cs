@@ -4,7 +4,7 @@ using System.Security.Principal;
 Console.Clear();
 //Describe game to user
 Console.WriteLine("Hello! This is a game called madlibs which will ask you for some words like" +
-"nouns, adjectives, plurals nouns etc. To make a fun story for you to read.");
+"nouns, adjectives, plurals nouns etc. To make a fun story for you to read. Press any button to continue");
 //create a string variable with the story that will be manipulated by user
 string originalStory = "A vacation is when you take a trip to some (adjective) place with your"
 + " (adjective) family. Usually, you go to some place that is near a/an (noun) or up on a/an (noun)."
@@ -16,11 +16,9 @@ string originalStory = "A vacation is when you take a trip to some (adjective) p
 + " (place) and I will practice (verb ending in “ing”). Parents need vacations more than kids because"
 + " parents are always very (adjective) and because they have to work (number) hours every day all "
 + "year making enough (plural noun) to pay for the vacation.";
-//Console.Write(originalStory);
-Console.WriteLine("");
+Console.ReadKey();
 //create an array that will hold each word as seperate items in an array
 string[] newStory = originalStory.Split();
-string userAnswer = "your mom";
 for(int i = 0; i < newStory.Length - 1; i++)
 {
     Console.Clear();
@@ -60,8 +58,8 @@ for(int i = 0; i < newStory.Length - 1; i++)
             }
             j++;
         }
-        Console.WriteLine($"Please give a{inBetweenParanthesis}");
-        userAnswer = Console.ReadLine();
+        Console.WriteLine($"Please give a {inBetweenParanthesis.Substring(2, inBetweenParanthesis.Length-3)}");
+        string userAnswer = Console.ReadLine();
         userAnswer = " " + userAnswer;
         int indexOfWord = originalStory.IndexOf(inBetweenParanthesis);
         //substrings of the original story creating the 3 sections of the new story, what comes before the paraenthesis, the users input, and what comes after the paranthesis
