@@ -11,9 +11,9 @@ string originalStory = "A vacation is when you take a trip to some (adjective) p
 + " A good vacation place is one where you can ride (plural noun) or play (game) or go hunting for "
 + "(plural noun). I like to spend my time (verb ending in “ing”) or (verb ending in “ing”). When "
 + "parents go on a vacation, they spend their time eating three (plural noun) a day, and fathers "
-+ "play golf, and mothers sit around (verb ending in “ing”) Last summer, my little brother fell in"
-+ " a/an (noun) and got poison (plant) all over his (part of the body) My family is going to go to"
-+ " (place) and I will practice (verb ending in “ing”) Parents need vacations more than kids because"
++ "play golf, and mothers sit around (verb ending in “ing”). Last summer, my little brother fell in"
++ " a/an (noun) and got poison (plant) all over his (part of the body). My family is going to go to"
++ " (place) and I will practice (verb ending in “ing”). Parents need vacations more than kids because"
 + " parents are always very (adjective) and because they have to work (number) hours every day all "
 + "year making enough (plural noun) to pay for the vacation.";
 //Console.Write(originalStory);
@@ -25,17 +25,16 @@ for(int i = 0; i < newStory.Length - 1; i++)
 {
     Console.Clear();
     Console.WriteLine(originalStory);
+    Console.WriteLine("");
     //initializing a string variable that will have the value of a specific item in the array
     //to be tested against
     string storyWord = newStory[i];
     bool keepChecking = false;
-    bool changeStory = false;
     int j = i;
     string inBetweenParanthesis = "";
     if(storyWord[0].Equals('('))
     {
         keepChecking = true;
-        changeStory = true;
         while(keepChecking)
         {
             //Console.WriteLine("while loop entered");
@@ -49,14 +48,21 @@ for(int i = 0; i < newStory.Length - 1; i++)
             }
             else if(endStoryWrd[WrdLength-1].Equals(')') || endStoryWrd.Substring(WrdLength-2,2).Equals(")."))
             {
-                inBetweenParanthesis += " " + endStoryWrd;
+                if(endStoryWrd[WrdLength-1].Equals(')'))
+                {
+                    inBetweenParanthesis += " " + endStoryWrd;
+                }
+                else
+                {
+                    inBetweenParanthesis += " " + endStoryWrd.Substring(0, WrdLength - 1);
+                }
                 keepChecking = false;
             }
             j++;
         }
         Console.WriteLine($"Please give a{inBetweenParanthesis}");
         userAnswer = Console.ReadLine();
-        userAnswer = " " + userAnswer + " ";
+        userAnswer = " " + userAnswer;
         int indexOfWord = originalStory.IndexOf(inBetweenParanthesis);
         //substrings of the original story creating the 3 sections of the new story, what comes before the paraenthesis, the users input, and what comes after the paranthesis
         string storyBeginning = originalStory.Substring(0, indexOfWord);
